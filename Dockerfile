@@ -4,7 +4,7 @@ FROM python:${PYTHON_BASE_IMAGE} AS build
 
 
 #Install dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
   build-essential \
   cmake \
   curl \
@@ -29,12 +29,12 @@ RUN make
 RUN make install
 
 #Set standard variables
-#ENV CAMERA_DEV /dev/video0
-#ENV MJPG_STREAMER_INPUT -y -n -r 640x480
+ENV CAMERA_DEV /dev/video0
+ENV MJPG_STREAMER_INPUT -y -n -r 640x480 -f 30
 
 # Expose the port
 EXPOSE 80
 
 VOLUME /mjpg-streamer
 
-CMD mjpg_streamer -i "input_uvc.so -y -n -f 30" -o "output_http.so -p 80 -w /usr/local/www"
+CMD mjpg_streamer -i "input_uvc.so ${MJPG_STREAMER_INPUT} -d ${CAMERA_DEV}" -o "output_http.so -p 80 -w /usr/local/www"
