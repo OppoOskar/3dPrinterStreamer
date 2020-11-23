@@ -6,7 +6,9 @@ FROM python:${PYTHON_BASE_IMAGE} AS build
 #Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
   python3-dev \
-  build-essential
+  build-essential \
+  libpcre3 \ 
+  libpcre3-dev
 
 #Copy flask app to work dir
 COPY flaskApp/. /srv/flask_app
