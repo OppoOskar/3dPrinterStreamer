@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    <div>
+        <h1>Currently printing: {{name}}</h1>
+        <h2>Status: {{status}}</h2>
+        <h2>Time left: {{timeleft}} min</h2>
+        <h2>Completion: {{completion}} %</h2>
+    </div>
+</body>
+<script>
+    function reload() {
+        document.location.reload();
+      }
+      
+      setTimeout(reload, 5000);
+</script>
+</html>

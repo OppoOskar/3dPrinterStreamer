@@ -1,10 +1,15 @@
 import requests
 import json
+import math
 from flask import Flask, redirect, url_for, render_template, request, flash
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
+def index_page():
+    return render_template("index.html")
+
+@app.route("/data")
+def data_page():
     url = 'http://192.168.0.122:8081/api/job'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7',
@@ -14,7 +19,6 @@ def hello():
     result = requests.get(url, headers=headers)
     jsonRes = json.loads(result.content)
 
-    print(jsonRes)
     job = jsonRes["job"]
     jobfile = job["file"]
     progress  = jsonRes["progress"]
@@ -24,7 +28,13 @@ def hello():
     timeleft = progress["printTimeLeft"]
     completion = progress["completion"]
 
-    return render_template("index.html", name=filename, status=status, timeleft=timeleft, completion=completion)
+    if timeleft != None:
+        timeleft = int(timeleft/60)
+    
+    if completion != None:
+        completion = math.trunc(completion)
+
+    return render_template("data.html", name=filename, status=status, timeleft=timeleft, completion=completion)
 
 if __name__ == "__main__":
     app.run()
