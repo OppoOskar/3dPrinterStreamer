@@ -36,8 +36,8 @@ def data_page():
 
     return render_template("data.html", name=filename, status=status, timeleft=timeleft, completion=completion)
 
-if __name__ == "__main__":
-    app.run()
+#if __name__ == "__main__":
+ #   app.run()
 
 
 ##{'job': 
