@@ -16,6 +16,6 @@ WORKDIR /srv/flask_app
 # Install requirements
 RUN pip install -r requirements.txt --src /usr/local/src
 
-COPY /srv/flask_app/nginx.conf /etc/nginx
+COPY flaskApp/nginx.conf /etc/nginx
 RUN chmod +x ./start.sh
 CMD ["./start.sh"]
