@@ -11,5 +11,11 @@ services:
     environment:
       - VIRTUAL_HOST=3dprinter.oskarolsson.com
       - LETSENCRYPT_HOST=3dprinter.oskarolsson.com
+ 
     networks:
       - nginx-network
+
+
+networks:
+  nginx-network:
+    external: true
