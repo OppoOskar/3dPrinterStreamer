@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  :
+    image: flask-server-image:latest
+    restart: always
+    ports:
+      - 8084:80
+    expose:
+      - 80
+    environment:
+      - VIRTUAL_HOST=3dprinter.oskarolsson.com
+      - LETSENCRYPT_HOST=3dprinter.oskarolsson.com
+    networks:
+      - nginx-network
