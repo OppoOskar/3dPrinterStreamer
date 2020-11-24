@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-    image: flask-server-image:latest
+    image: flask-server-image
     restart: always
     ports:
       - 8084:80
