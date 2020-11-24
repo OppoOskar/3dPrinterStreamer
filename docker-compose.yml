@@ -3,6 +3,7 @@ version: '2'
 services:
   3dprinter-flask-server:
     image: flask-server-image
+    name: 3dprinter-flask-server
     restart: always
     ports:
       - 8084:80
