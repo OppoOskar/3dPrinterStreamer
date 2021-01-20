@@ -1,0 +1,22 @@
+version: '1'
+
+services:
+ updated3dprinter:
+    image: updated3dprinter:latest
+    container_name: updated3dprinter
+    restart: always
+    ports:
+      - 8085:8080
+    expose:
+      - 80
+    #environment:
+      #- VIRTUAL_HOST=3dprinter.oskarolsson.com
+      #- LETSENCRYPT_HOST=3dprinter.oskarolsson.com
+ 
+#    networks:
+#      - nginx-network
+
+
+#networks:
+#  nginx-network:
+#    external: true
