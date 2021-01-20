@@ -22,4 +22,4 @@ EXPOSE 80
 USER node
 
 #RUN IT!
-CMD [ "npm", "start" ]
+CMD [ "npm", "start -p 80" ]
