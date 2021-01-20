@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 #Run installation of packages (ci and --only=productio because building for production)
-RUN npm ci --only=productio
+RUN npm ci --only=production
 
 #Copy the rest of the files
 COPY . .
