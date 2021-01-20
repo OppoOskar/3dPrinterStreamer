@@ -9,14 +9,14 @@ services:
       - 8085:3000
     expose:
       - 80
-    #environment:
-      #- VIRTUAL_HOST=3dprinter.oskarolsson.com
-      #- LETSENCRYPT_HOST=3dprinter.oskarolsson.com
+    environment:
+      - VIRTUAL_HOST=3dprinter.oskarolsson.com
+      - LETSENCRYPT_HOST=3dprinter.oskarolsson.com
  
-#    networks:
-#      - nginx-network
+    networks:
+      - nginx-network
 
 
-#networks:
-#  nginx-network:
-#    external: true
+networks:
+  nginx-network:
+    external: true
