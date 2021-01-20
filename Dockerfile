@@ -6,8 +6,8 @@ WORKDIR /usr/src/app
 #Copy any package.json files to workdir
 COPY package*.json ./
 
-#Run installation of packages (ci and --only=productio because building for production)
-RUN npm ci --only=production
+#Run installation of packages
+RUN npm install --production
 
 #Copy the rest of the files
 COPY . .
@@ -18,5 +18,8 @@ RUN npm run build
 #Expose a port for the server ( doesnt really matter which)
 EXPOSE 8080
 
+#Set non-root user
+USER node
+
 #RUN IT!
-CMD [ "npm run", "start" ]
+CMD [ "npm", "start" ]
