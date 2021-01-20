@@ -6,7 +6,7 @@ services:
     container_name: updated3dprinter
     restart: always
     ports:
-      - 8085:8080
+      - 8085:3000
     expose:
       - 80
     #environment:

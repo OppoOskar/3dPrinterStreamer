@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build
 
 #Expose a port for the server ( doesnt really matter which)
-EXPOSE 8080
+EXPOSE 3000
 
 #Set non-root user
 USER node
