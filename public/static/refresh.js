@@ -108,4 +108,4 @@ function reload() {
     setTimeout(reload, 5000);
 }
 
-reload();
+document.onload = reload();
