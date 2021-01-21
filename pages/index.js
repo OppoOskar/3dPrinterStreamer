@@ -11,11 +11,28 @@ export default function Home({ data }) {
       </Head>
 
       <main>
-        <div className={style.content}>
-          <iframe className={style.textIframe} id="textIframe" src="/text" scrolling="no" frameBorder="0"></iframe>
+          <div id="state_border_color" className={style.content}>
+            <div className={style.textContent}>
+
+              <div id="state_background_color" className={style.state}>
+                  <h2 id="state_text"></h2>
+              </div>
+
+
+              <div className={style.textWrapper}>
+                  <h1>Currently printing: <span id="currently_printing"></span></h1>
+
+
+                  <h1>Est. print time left: <span id="time_left"></span></h1>
+                  <h1>Est. total print time:  <span id="total_print_time"></span></h1>
+
+                  <h1>Completion: <span id="progress"></span> %</h1>
+              </div>
+          </div>
+      
 
           <div className={style.stream}>
-            <iframe src="https://3dprinterstream.oskarolsson.com/?action=stream" scrolling="no" frameBorder="0"></iframe>
+            <img src="https://3dprinterstream.oskarolsson.com/?action=stream" scrolling="no" frameBorder="0"></img>
           </div>
         </div>
       </main>
