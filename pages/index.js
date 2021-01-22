@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import style from '../styles/index.module.sass'
 
-export default function Home({ data }) {
+export default function Home({}) {
   return (
     <div className="container">
       <Head>
         <title>Oskar Olsson's 3D printer</title>
         <link rel="icon" href="/favicon.ico" />
-        <script type="text/javascript" src="/static/refresh.js"></script>
+        <script type="text/javascript" src="/static/refreshText.js"></script>
       </Head>
 
       <main>
