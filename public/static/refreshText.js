@@ -37,7 +37,7 @@ function formatTime(seconds) {
   }
 
 function setTextData(data) {
-    //console.log(data);
+    console.log(data);
     let state_border_color = document.querySelectorAll("#state_border_color");
     let state_background_color = document.querySelectorAll("#state_background_color");
 
@@ -93,7 +93,7 @@ function setTextData(data) {
 
 
 
-function reload() {
+function reload(time) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -105,7 +105,7 @@ function reload() {
 
 
     //document.getElementById('textIframe').contentWindow.location.reload();
-    setTimeout(reload, 5000);
+    setTimeout(function() {
+        reload(time);
+    }, time)
 }
-
-document.onload = reload();
