@@ -22,4 +22,4 @@ EXPOSE 3000
 USER node
 
 #RUN IT!
-CMD [ "npm", "startLinux" ]
+CMD [ "npm", "start" ]
