@@ -17,7 +17,6 @@ export default async (req, res) => {
     })
     const data = await ans.json();
 
-    let default_path = path.resolve("./public/timelapses");
     let newFiles = [];
 
     data.files.forEach(file => {
@@ -26,7 +25,7 @@ export default async (req, res) => {
             let newfile = file;
 
             newfile.name = path.basename(path_file);
-            newfile.url = "/timelapses/" + path.basename(path_file);
+            newfile.url = "/files/timelapses/" + path.basename(path_file);
 
             newFiles.push(newfile);
         }
