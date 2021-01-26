@@ -22,4 +22,5 @@ EXPOSE 3000
 USER node
 
 #RUN IT!
-CMD [ "npm run", "startLinux" ]
+RUN NODE_ENV=production
+CMD [ "node run", "./server.js" ]
