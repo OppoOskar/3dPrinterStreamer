@@ -23,4 +23,4 @@ USER node
 
 #RUN IT!
 RUN NODE_ENV=production
-CMD [ "node run", "./server.js" ]
+CMD [ "node", "./server.js" ]
