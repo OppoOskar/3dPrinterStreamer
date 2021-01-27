@@ -12,15 +12,20 @@ RUN npm install --production
 #Copy the rest of the files
 COPY . .
 
+#Give the node user access to all files (Especielly files/timelapses)
+RUN chown -R node:node /
+
 #Build the project
 RUN npm run build
 
 #Expose a port for the server ( doesnt really matter which)
 EXPOSE 3000
 
-#RUN IT!
+#Set non-root user
+USER node
+
+#Set mode to production
 RUN APP_ENV=production
 
-#Set non-root user
-#USER node
+#RUN IT!
 CMD [ "node", "./server.js" ]
