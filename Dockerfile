@@ -22,5 +22,5 @@ EXPOSE 3000
 USER node
 
 #RUN IT!
-RUN NODE_ENV=production
+RUN APP_ENV=production
 CMD [ "node", "./server.js" ]

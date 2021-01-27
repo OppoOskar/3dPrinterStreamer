@@ -2,7 +2,7 @@ const express = require('express')
 const next = require('next')
 const bodyParser = require('body-parser')
 
-const dev = process.env.NODE_ENV !== 'production'
+const dev = process.env.APP_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
@@ -14,7 +14,7 @@ app.prepare().then(() => {
   server.use('/files/timelapses', express.static(__dirname + '/files/timelapses'))
 // add custom path here
 // server.post('/request/custom', custom);
-  //server.post('/timelapses', );
+//server.post('/timelapses', );
 
   
   server.get('*', (req, res) => {
