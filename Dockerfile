@@ -18,9 +18,9 @@ RUN npm run build
 #Expose a port for the server ( doesnt really matter which)
 EXPOSE 3000
 
-#Set non-root user
-USER node
-
 #RUN IT!
 RUN APP_ENV=production
+
+#Set non-root user
+USER node
 CMD [ "node", "./server.js" ]
