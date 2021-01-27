@@ -22,5 +22,5 @@ EXPOSE 3000
 RUN APP_ENV=production
 
 #Set non-root user
-USER node
+#USER node
 CMD [ "node", "./server.js" ]
