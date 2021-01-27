@@ -14,6 +14,7 @@ COPY . .
 
 #Give the node user access to all files (Especielly files/timelapses)
 RUN chown -R node:node /usr/src/app
+RUN chmod -R 755 /usr/src/app
 
 #Build the project
 RUN npm run build
