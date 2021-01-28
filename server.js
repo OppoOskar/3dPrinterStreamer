@@ -13,7 +13,7 @@ app.prepare().then(() => {
 
   server.use(bodyParser.json())
 
-  server.use('/files/timelapses', express.static('/files/timelapses'))
+  server.use('/files/timelapses', express.static(__dirname + '/files/timelapses'))
 // add custom path here
 // server.post('/request/custom', custom);
 //server.post('/timelapses', );
