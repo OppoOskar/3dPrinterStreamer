@@ -17,7 +17,7 @@ services:
       - VIRTUAL_HOST=3dprinter.oskarolsson.com
       - LETSENCRYPT_HOST=3dprinter.oskarolsson.com
     volumes:
-      - /mnt/sda1/shared/octoprint/octoprint/timelapse:/files/timelapses
+      - /mnt/sda1/shared/octoprint/octoprint/timelapse:/usr/src/app/files/timelapses
     networks:
       - nginx-network
 
