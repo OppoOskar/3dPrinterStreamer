@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "SET OP_SETTINGS={\"API_KEY\":\"BD86451B85D3458FA21FA8291188D4B0\", \"IP\":\"192.168.0.122\", \"PORT\":8081} && node server.js",
     "build": "next build",
-    "start": "SET APP_ENV=production && node ./server.js"
+    "start": "SET OP_SETTINGS={\"API_KEY\":BD86451B85D3458FA21FA8291188D4B0, \"IP\":192.168.0.122, \"PORT\":8081}  && node ./server.js"
   },
   "dependencies": {
     "address": "^1.1.2",

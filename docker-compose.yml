@@ -10,6 +10,10 @@ services:
     expose:
       - 3000
     environment:
+      - PORT=3000
+      - OCTOPRINT_APIKEY=BD86451B85D3458FA21FA8291188D4B0
+      - OCTOPRINT_IP=127.0.0.1
+      - OCTOPRINT_PORT=8081
       - VIRTUAL_HOST=3dprinter.oskarolsson.com
       - LETSENCRYPT_HOST=3dprinter.oskarolsson.com
     volumes: 

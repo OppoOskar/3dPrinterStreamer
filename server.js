@@ -3,7 +3,8 @@ const next = require('next')
 const bodyParser = require('body-parser')
 
 const dev = process.env.APP_ENV !== 'production'
-const app = next({ dev })
+const conf = {"env": {"OP_SETTINGS": process.env.OCTOPRINT_SETTINGS}};
+const app = next({dev, conf})
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
@@ -21,7 +22,7 @@ app.prepare().then(() => {
     return handle(req, res)
   })
 
-  server.listen(3000, (err) => {
+  server.listen(process.env.PORT, (err) => {
     if (err) throw err
     console.log('Ready on http://localhost:3000')
   })

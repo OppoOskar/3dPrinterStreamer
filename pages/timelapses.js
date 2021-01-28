@@ -62,8 +62,8 @@ export default function text({ data }) {
 
             <div className={style.videoList}>
               <ul id="timelapses">
-                {data.map(({ name, date, url, size }) => (
-                <li  id="state_background_color">
+                {data.map(({ name, date, url, size }, index) => (
+                <li  id="state_background_color" key={index}>
                   <div>
                     <h3>{name}</h3>
                     <p>{date}</p>

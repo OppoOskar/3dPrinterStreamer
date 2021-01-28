@@ -1,5 +1,11 @@
 FROM node:12
 
+#Define ARGS
+ARG OCTOPRINT_APIKEY=""
+ARG OCTOPRINT_IP="127.0.0.1"
+ARG OCTOPRINT_PORT=8081
+ARG PORT=3000
+
 #Set workdir
 WORKDIR /usr/src/app
 
@@ -16,17 +22,21 @@ COPY . .
 RUN npm run build
 
 #Expose a port for the server ( doesnt really matter which)
-EXPOSE 3000
+EXPOSE $PORT
 
 #Give the node user access to all files (Especielly files/timelapses)
 RUN chown -R node:node /usr/src/app
 RUN chmod -R 755 /usr/src/app
 
+RUN APP_APIKEY=$APIKEY
+
 #Set non-root user
 USER node
 
-#Set mode to production
+#Set all env variables
 RUN APP_ENV=production
+RUN OP_SETTINGS={"API_KEY":$OCTOPRINT_APIKEY, "IP":$OCTOPRINT_IP, "PORT":$OCTOPRINT_PORT}
+RUN SERVER_PORT=$PORT
 
 #RUN IT!
 CMD [ "node", "./server.js" ]
