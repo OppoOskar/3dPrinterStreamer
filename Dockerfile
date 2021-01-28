@@ -28,14 +28,13 @@ EXPOSE $PORT
 RUN chown -R node:node /usr/src/app
 RUN chmod -R 755 /usr/src/app
 
-RUN APP_APIKEY=$APIKEY
 
 #Set non-root user
 USER node
 
 #Set all env variables
 RUN APP_ENV=production
-RUN OCTOPRINT_SETTINGS="{\"API_KEY\":\"$OCTOPRINT_APIKEY\", \"IP\":\"$OCTOPRINT_IP\", \"PORT\":$OCTOPRINT_PORT}"
+RUN OCTOPRINT_SETTINGS={"API_KEY":"$OCTOPRINT_APIKEY", "IP":"$OCTOPRINT_IP", "PORT":$OCTOPRINT_PORT}"
 RUN SERVER_PORT=$PORT
 
 #RUN IT!
