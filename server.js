@@ -3,6 +3,7 @@ const next = require('next')
 const bodyParser = require('body-parser')
 
 const dev = process.env.APP_ENV !== 'production'
+console.log(process.env.OCTOPRINT_SETTINGS)
 const conf = {"env": {"OP_SETTINGS": process.env.OCTOPRINT_SETTINGS}};
 const app = next({dev, conf})
 const handle = app.getRequestHandler()
