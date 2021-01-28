@@ -21,7 +21,7 @@ COPY . .
 #Build the project
 RUN npm run build
 
-#Expose a port for the server ( doesnt really matter which)
+#Expose a port for the server
 EXPOSE $PORT
 
 #Give the node user access to all files (Especielly files/timelapses)
@@ -35,7 +35,7 @@ USER node
 
 #Set all env variables
 RUN APP_ENV=production
-RUN OP_SETTINGS="{\"API_KEY\":$OCTOPRINT_APIKEY, \"IP\":$OCTOPRINT_IP, \"PORT\":$OCTOPRINT_PORT}"
+RUN OP_SETTINGS="{\"API_KEY\":\"$OCTOPRINT_APIKEY\", \"IP\":\"$OCTOPRINT_IP\", \"PORT\":$OCTOPRINT_PORT}"
 RUN SERVER_PORT=$PORT
 
 #RUN IT!
