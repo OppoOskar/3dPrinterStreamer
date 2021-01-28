@@ -1,10 +1,9 @@
 export default async (req, res) => {
+    console.log(process.env.OP_SETTINGS)
 
     const op_settings = JSON.parse(process.env.OP_SETTINGS);
 
     const address = "http://" + op_settings.IP + ":" + op_settings.PORT + "/api/job";
-    
-    console.log(address)
     const ans = await fetch(address, 
     {
         headers: {

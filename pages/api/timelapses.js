@@ -5,7 +5,7 @@ export default async (req, res) => {
     const op_settings = JSON.parse(process.env.OP_SETTINGS);
 
     const address = "http://" + op_settings.IP + ":" + op_settings.PORT + "/api/timelapse";
-    console.log(address)
+
     const ans = await fetch(address, 
     {
         headers: {
